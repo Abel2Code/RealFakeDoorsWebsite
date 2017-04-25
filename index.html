@@ -1,0 +1,235 @@
+<!-- List example would be the top bar
+Custom Style has some adjustments to tables.
+
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <!-- change photo on tab bar -->
+
+    <title>Real Fake Doors</title>
+
+    <!-- Custom Style Sheet Seperate from Template - RealFakeDoors -->
+     <link href="customStyle.css" type="text/css" rel="stylesheet" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div  class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Real Fake Doors</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="doorPrices.html">Door Prices</a></li>
+                <li><a href="purchase.html">Purchase Here</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Meet Our Sponsors<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Sponsor1</a></li>
+                    <li><a href="#">Sponsor2</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+    <!-- fix! -->
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Carousel Slide seems to be what makes the gray background. We will have to find out what that means -->
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+
+          <div class="container">
+            <div class="carousel-caption">
+
+              <h1>Real Fake Doors</h1>
+              <p> Hey! Are you tired of real doors cluttering up your house where you open them where they actually go somehwere and you go into another room? Get on down the real fake doors! Fill a whole room with them!</p>
+              <br /><br /><br /><br />
+
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption">
+              <a href="AnotherRoom.html">
+                <h1><img class="second-slide" src="Images/ClosedRealDoor.jpg" height="200"></h1>
+              </a>
+              <p>Here is a real door. Try clicking on it. Great! Wanna see some good real fake doors now. Choose any of these!  </p>
+              <br />
+            </div>
+          </div>
+        </div>
+        <div class="item">
+
+          <div class="container">
+            <div class="carousel-caption">
+
+
+            <!-- consider creating a new table. This one is suuuuper weird...-->
+            <div class="bodyTable">
+	              <table border="1" class="table table-bordered">
+	                     <tr>
+	                     	<td colspan="3" class="tableHead"><strong><div style="color: #fdf6e3;">Fake Doors</div> </strong></td>
+	                     	<!-- There was a bug where I could not align middle with th because of dist/css/bootstrap.min.css -->
+	                     </tr>
+
+	                     <tr>
+	                     	<td><a href="#doorSet1"><div style="color: #e04141;">Red Fake Door</div></a></td>
+	                     	<td><a href="#doorSet1"><div style="color: #e04141;">Blue Fake Door</div></a></td>
+	                     	<td><a href="#doorSet1"><div style="color: #e04141;">Fancy Fake Door</div></a></td>
+	                     </tr>
+
+	                     <tr>
+	                     	<td><a href="#doorSet2"><div style="color: #e04141;">Double Fake Door</div></a></td>
+	                     	<td><a href="#doorSet2"><div style="color: #e04141;">Cheeto Fake Door</div></a></td>
+	                     	<td><a href="#doorSet2"><div style="color: #e04141;">Cheeto Fake Door</div></a></td>
+	                     	</tr>
+
+	                     <tr>
+		                     <td><a href="doorPrices.html"><div style="color: #e04141;">Real Fake Prices</div></a></td>
+		                     <td><a href="#"><div style="color: #e04141;">Real Fake Button</div></a></td>
+		                     <td><a href="purchase.html"><div style="color: #e04141;">Purchase Here</div></a></td>
+	                     </tr>
+	              </table>
+	              <br /><br /><br /><br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img id="doorSet1" src="http://dreamicus.com/data/door/door-05.jpg" alt="Generic placeholder image" height="200">
+          <h2 >Real Fake Door</h2>
+          <p>Try clicking on this door. Go on, I will wait. *jeopardy theme plays* Nothing? Just the way it should be!  </p>
+
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img  src="Images/BlueFakeDoor.jpg" alt="Generic placeholder image" height="200">
+          <h2>Blue Fake Door</h2>
+          <p>This door doesn't go anywhere either! Now I know you are ready to buy one! Keep track of the number next to the real fake door you want to buy. After looking at all the real fake doors, fill out the form below to order yours!</p>
+
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img src="Images/FancyFakeDoor.jpg" alt="Generic placeholder image" height="200">
+          <h2>Fancy Fake Door</h2>
+          <p>Oh my! Those look like real windows. Get this. They're not! I just taped a photo onto a real fake window. This costs extra. DONT YOU DARE TRY TO SCAM ME INTO FREE REAL FAKE WINDOWS. </p>
+
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <div class="row">
+        <div class="col-lg-4">
+          <img id="doorSet2" src="https://st.hzcdn.com/simgs/ef714786061efe4d_4-9868/traditional-front-doors.jpg" alt="Generic placeholder image" height="200">
+          <h2>Double Fake Doors</h2>
+          <p>Is your mind blown? You might be asking, well can't I just buy two real fake doors and put them together. Ummm No! I'll... I'll sue you</p>
+
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img  src="Images/RefrigeratorFakeDoor.jpg" alt="Generic placeholder image" height="200">
+          <h2>Refrigerator Fake Door</h2>
+          <p>Do you suffer from eating when bored, snacking at night, or just overeating in general? I would reccomend this classic!</p>
+
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img src="Images/OrangeFakeDoor.jpg" alt="Generic placeholder image" height="200">
+          <h2>Cheeto Door</h2>
+          <p>Do you like cheetos? Of course you do! Do you like real fake doors? Well, you got this far. Here you go. CHEETO DOOR!</p>
+
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+      <!-- FOOTER -->
+      <hr />
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017 Real Fake Doors, Inc. &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+  </body>
+</html>

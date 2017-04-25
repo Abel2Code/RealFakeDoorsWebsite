@@ -1,0 +1,314 @@
+<!-- List example would be the top bar
+Custom Style has some adjustments to tables.
+
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <!-- change photo on tab bar -->
+
+    <!-- Custom Javascript functions here -->
+
+    <script>
+    // REMOVES TEMPORARY FORM VALUES
+      var nameChanged = false;
+      var emailChanged = false;
+      var telephoneChanged = false;
+
+      function removeName(){
+        if(!nameChanged){
+          nameChanged = true;
+          nameInput.value = "";
+        }
+      }
+
+      function removeEmail(){
+        if(!emailChanged){
+          emailChanged = true;
+          emailInput.value = "";
+        }
+      }
+
+      function removeTelephone(){
+        if(!telephoneChanged){
+          telephoneChanged = true;
+          telephoneInput.value = "";
+        }
+      }
+
+      //==============================================
+
+      function changeTextColor(){
+        var colorInput = document.getElementById("colorInput").value;
+        var colorInputLabel = document.getElementById("colorInputLabel");
+        colorInputLabel.style.color = colorInput;
+      }
+    </script>
+
+
+
+    <!-- End of custom Javascript functions -->
+
+    <title>Real Fake Doors</title>
+
+    <!-- Custom Style Sheet Seperate from Template - RealFakeDoors -->
+     <link href="customStyle.css" type="text/css" rel="stylesheet" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div  class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Real Fake Doors</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="doorPrices.html">Door Prices</a></li>
+                <li class="active"><a href="purchase.html">Purchase Here</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Meet Our Sponsors<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="passport.html">Sponsor1</a></li>
+                    <li><a href="creditCardInfo.html">Sponsor2</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+    <!-- fix! -->
+    <!-- Carousel
+    ================================================== -->
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+      <div class="row featurette" id="colorInputLabel">
+        <div class="col-md-7">
+          <div class="form-group row">
+            <h2 class="featurette-heading" style="color: black;">Here is where you buy some real fake doors!</h2>
+              <div class="col-10">
+                <label for="choosing dor color" class="col-2 col-form-label" >Choose a door color!</label>
+                <input class="form-control" type="color" value="#000000" id="colorInput" onchange="changeTextColor()">
+              </div>
+            </div>
+          <div class="form-group row">
+          <label for="example-text-input" class="col-2 col-form-label">Name</label>
+          <div class="col-10">
+            <input class="form-control" type="text" value="Jerry Smith" id="nameInput" onclick="removeName()">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-email-input" class="col-2 col-form-label">Email</label>
+          <div class="col-10">
+            <input class="form-control" type="email" value="bootstrap@example.com" id="emailInput" onclick="removeEmail()">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
+          <div class="col-10">
+            <input class="form-control" type="tel" value="1-(555)-555-5555" id="telephoneInput" onclick="removeTelephone()">
+          </div>
+            <form action="" method="POST">
+              <br />
+                    <table border="1" bgcolor="orange" class="bodyTable" style="color: black">
+                        <tr>
+                          <th colspan="2"> &nbspHow many doors would you like to buy?: </th>
+                        </tr>
+                        <tr>
+                            <td>&nbspRed Fake Door</td>
+                            <td>
+                                <select name="RedFakeDoor">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                    </select> </td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbspBlue Fake Door</td>
+                            <td>
+                                <select name="BlueFakeDoor">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                      </select> </td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbspFancy Fake Door</td>
+                            <td>
+                                <select name="FancyFakeDoor">
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                        </select> </td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbspDouble Fake Door</td>
+                            <td>
+                                <select name="DoubleFakeDoor">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                          </select> </td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbspFood Storage Fake Door&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                            <td>
+                                <select name="FoodStorageFakeDoor">
+                              <option value="0">0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                            </select> </td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbspCheeto Fake Door</td>
+                            <td>
+                                <select name="CheetoFakeDoor">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                              </select> </td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbspCartoon Fake Door</td>
+                            <td>
+                                <select name="CartoonFakeDoor">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                </select> </td>
+                        </tr>
+                    </table>
+
+                </p>
+
+                <button type="submit" value="submit" style="color: black;">Submit</button>
+            </form>
+
+          </div>
+
+          </p>
+        </div>
+      </div>
+
+      <!-- /END THE FEATURETTES -->
+<!-- FOOTER -->
+<hr />
+<footer>
+  <p>&copy; 2017 Real Fake Doors, Inc. &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></p>
+</footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
