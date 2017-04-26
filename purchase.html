@@ -47,11 +47,85 @@ Custom Style has some adjustments to tables.
 
       //==============================================
 
+      //Changes text color
       function changeTextColor(){
         var colorInput = document.getElementById("colorInput").value;
         var colorInputLabel = document.getElementById("colorInputLabel");
         colorInputLabel.style.color = colorInput;
       }
+
+      //==============================================
+
+      //Calculator Logic
+      var firstValue = 0;
+      var secondValue = 0;
+      var onFirstValue = true;
+      var operator;
+
+      function update(){
+        if(onFirstValue){
+          document.getElementById('label').innerHTML = "|"  + firstValue;
+        } else{
+            document.getElementById('label').innerHTML = "|"  + secondValue;
+        }
+      }
+
+      function pressNumber(num){
+        if(onFirstValue){
+          firstValue = firstValue * 10 + num;
+        } else{
+          secondValue = secondValue * 10 + num;
+        }
+        update();
+      }
+
+      function pressSymbol(sym){
+        total = 0;
+        if(sym == 'C'){
+          firstValue = 0;
+          secondValue = 0;
+          onFirstValue = true;
+          operator = null;
+          update();
+        } else if(sym == '='){
+          if(operator == '+'){
+            firstValue = firstValue + secondValue;
+            secondValue = 0;
+            onFirstValue = true;
+            update();
+          } else if(operator == '-'){
+            firstValue = firstValue - secondValue;
+            secondValue = 0;
+            onFirstValue = true;
+            update();
+          } else if(operator == 'x'){
+            firstValue = firstValue * secondValue;
+            secondValue = 0;
+            onFirstValue = true;
+            update();
+          } else if(operator == '/'){
+            firstValue = firstValue / secondValue;
+            secondValue = 0;
+            onFirstValue = true;
+            update();
+          }
+        } else if(sym == '+'){
+          operator = '+';
+          onFirstValue = false;
+        } else if(sym == '-'){
+          operator = '-';
+          onFirstValue = false;
+        } else if(sym == 'x'){
+          operator = 'x';
+          onFirstValue = false;
+        } else if(sym == '/'){
+          operator = '/';
+          onFirstValue = false;
+        }
+      }
+
+      //==================
+
     </script>
 
 
@@ -132,7 +206,7 @@ Custom Style has some adjustments to tables.
           <div class="form-group row">
             <h2 class="featurette-heading" style="color: black;">Here is where you buy some real fake doors!</h2>
               <div class="col-10">
-                <label for="choosing dor color" class="col-2 col-form-label" >Choose a door color!</label>
+                <label for="choosing your color" class="col-2 col-form-label" >Choose a door color!</label>
                 <input class="form-control" type="color" value="#000000" id="colorInput" onchange="changeTextColor()">
               </div>
             </div>
@@ -153,6 +227,41 @@ Custom Style has some adjustments to tables.
           <div class="col-10">
             <input class="form-control" type="tel" value="1-(555)-555-5555" id="telephoneInput" onclick="removeTelephone()">
           </div>
+          <div class="bodyTable">
+              <table border="1" class="table table-bordered" style="width: 20%; position: absolute; left: 700px; border: 3px solid #381911;">
+                     <tr>
+                      <td colspan="4"><p id="label">|</p></td>
+                      <!-- There was a bug where I could not align middle with th because of dist/css/bootstrap.min.css -->
+                     </tr>
+
+                     <tr>
+                      <td><button style="width: 50px;" onclick="pressNumber(1)">1</button>
+                      <td><button style="width: 50px;" onclick="pressNumber(2)">2</button>
+                      <td><button style="width: 50px;" onclick="pressNumber(3)">3</button>
+                      <td><button style="width: 50px;" onclick="pressSymbol('+')">+</button>
+                     </tr>
+
+                     <tr>
+                       <td><button style="width: 50px;" onclick="pressNumber(4)">4</button>
+                       <td><button style="width: 50px;" onclick="pressNumber(5)">5</button>
+                       <td><button style="width: 50px;" onclick="pressNumber(6)">6</button>
+                       <td><button style="width: 50px;" onclick="pressSymbol('-')">-</button>
+                      </tr>
+
+                     <tr>
+                       <td><button style="width: 50px;" onclick="pressNumber(7)">7</button>
+                       <td><button style="width: 50px;" onclick="pressNumber(8)">8</button>
+                       <td><button style="width: 50px;" onclick="pressNumber(9)">9</button>
+                       <td><button style="width: 50px;" onclick="pressSymbol('x')">x</button>
+                     </tr>
+                     <tr>
+                       <td><button style="width: 50px;" onclick="pressSymbol('C')">C</button>
+                       <td><button style="width: 50px;" onclick="pressNumber(0)">0</button>
+                       <td><button style="width: 50px;" onclick="pressSymbol('=')">=</button>
+                       <td><button style="width: 50px;" onclick="pressSymbol('/')">/</button>
+                     </tr>
+              </table>
+            </div>
             <form action="" method="POST">
               <br />
                     <table border="1" bgcolor="orange" class="bodyTable" style="color: black">
@@ -285,7 +394,6 @@ Custom Style has some adjustments to tables.
             </form>
 
           </div>
-
           </p>
         </div>
       </div>

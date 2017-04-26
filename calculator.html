@@ -1,42 +1,112 @@
 <html>
   <head>
+    <script>
+      var firstValue = 0;
+      var secondValue = 0;
+      var onFirstValue = true;
+      var operator;
+
+      function update(){
+        if(onFirstValue){
+          document.getElementById('label').innerHTML = "|"  + firstValue;
+        } else{
+            document.getElementById('label').innerHTML = "|"  + secondValue;
+        }
+      }
+
+      function pressNumber(num){
+        if(onFirstValue){
+          firstValue = firstValue * 10 + num;
+        } else{
+          secondValue = secondValue * 10 + num;
+        }
+        update();
+      }
+
+      function pressSymbol(sym){
+        total = 0;
+        if(sym == 'C'){
+          firstValue = 0;
+          secondValue = 0;
+          onFirstValue = true;
+          operator = null;
+          update();
+        } else if(sym == '='){
+          if(operator == '+'){
+            firstValue = firstValue + secondValue;
+            secondValue = 0;
+            onFirstValue = true;
+            update();
+          } else if(operator == '-'){
+            firstValue = firstValue - secondValue;
+            secondValue = 0;
+            onFirstValue = true;
+            update();
+          } else if(operator == 'x'){
+            firstValue = firstValue * secondValue;
+            secondValue = 0;
+            onFirstValue = true;
+            update();
+          } else if(operator == '/'){
+            firstValue = firstValue / secondValue;
+            secondValue = 0;
+            onFirstValue = true;
+            update();
+          }
+        } else if(sym == '+'){
+          operator = '+';
+          onFirstValue = false;
+        } else if(sym == '-'){
+          operator = '-';
+          onFirstValue = false;
+        } else if(sym == 'x'){
+          operator = 'x';
+          onFirstValue = false;
+        } else if(sym == '/'){
+          operator = '/';
+          onFirstValue = false;
+        }
+      }
+
+    </script>
   </head>
   <body>
 
     <div class="bodyTable">
         <table border="1" class="table table-bordered">
                <tr>
-                <td colspan="4" class="tableHead"><strong><div style="color: #fdf6e3;">Fake Doors</div> </strong></td>
+                <td colspan="4"><p id="label">|</p></td>
                 <!-- There was a bug where I could not align middle with th because of dist/css/bootstrap.min.css -->
                </tr>
 
                <tr>
-                <td><button style="width: 50px;">1</button>
-                <td><button style="width: 50px;">2</button>
-                <td><button style="width: 50px;">3</button>
-                <td><button style="width: 50px;">+</button>
+                <td><button style="width: 50px;" onclick="pressNumber(1)">1</button>
+                <td><button style="width: 50px;" onclick="pressNumber(2)">2</button>
+                <td><button style="width: 50px;" onclick="pressNumber(3)">3</button>
+                <td><button style="width: 50px;" onclick="pressSymbol('+')">+</button>
                </tr>
 
                <tr>
-                 <td><button style="width: 50px;">4</button>
-                 <td><button style="width: 50px;">5</button>
-                 <td><button style="width: 50px;">6</button>
-                 <td><button style="width: 50px;">-</button>
+                 <td><button style="width: 50px;" onclick="pressNumber(4)">4</button>
+                 <td><button style="width: 50px;" onclick="pressNumber(5)">5</button>
+                 <td><button style="width: 50px;" onclick="pressNumber(6)">6</button>
+                 <td><button style="width: 50px;" onclick="pressSymbol('-')">-</button>
                 </tr>
 
                <tr>
-                 <td><button style="width: 50px;">7</button>
-                 <td><button style="width: 50px;">8</button>
-                 <td><button style="width: 50px;">9</button>
-                 <td><button style="width: 50px;">x</button>
+                 <td><button style="width: 50px;" onclick="pressNumber(7)">7</button>
+                 <td><button style="width: 50px;" onclick="pressNumber(8)">8</button>
+                 <td><button style="width: 50px;" onclick="pressNumber(9)">9</button>
+                 <td><button style="width: 50px;" onclick="pressSymbol('x')">x</button>
                </tr>
                <tr>
-                 <td><button style="width: 50px;">.</button>
-                 <td><button style="width: 50px;">0</button>
-                 <td><button style="width: 50px;">DEL</button>
-                 <td><button style="width: 50px;">/</button>
+                 <td><button style="width: 50px;" onclick="pressSymbol('C')">C</button>
+                 <td><button style="width: 50px;" onclick="pressNumber(0)">0</button>
+                 <td><button style="width: 50px;" onclick="pressSymbol('=')">=</button>
+                 <td><button style="width: 50px;" onclick="pressSymbol('/')">/</button>
                </tr>
         </table>
+      </div>
   </body>
 
 </html
