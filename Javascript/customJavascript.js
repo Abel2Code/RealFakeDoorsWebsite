@@ -13,37 +13,16 @@ function writeNavbar(activePage){
                 "<a class=\"navbar-brand\" href=\"#\"\>Real Fake Doors</a\> " +
               "</div\> " +
               "<div id=\"navbar\" class=\"navbar-collapse collapse\"\> " +
-                "<ul class=\"nav navbar-nav\"\>";
-  if(activePage == "index"){
-    navbar+="<li class=\"active\"\><a href=\"index.html\"\>Home</a\></li\> " +
-    "<li\><a href=\"doorPrices.html\"\>Door Prices</a\></li\> " +
-    "<li\><a href=\"purchase.html\"\>Purchase Here</a\></li\> " +
-    "<li class=\"dropdown\"\> " +
-      "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\>Meet Our Sponsors<span class=\"caret\"\></span\></a\> " +
-      "<ul class=\"dropdown-menu\"\> " +
-        "<li\><a href=\"passport.html\"\>Sponsor1</a\></li\> " +
-        "<li\><a href=\"creditCardInfo.html\"\>Sponsor2</a\></li\>";
-  } else if(activePage == "doorPrices"){
-    navbar+="<li\><a href=\"index.html\"\>Home</a\></li\> " +
-    "<li class=\"active\"\><a href=\"doorPrices.html\"\>Door Prices</a\></li\> " +
-    "<li\><a href=\"purchase.html\"\>Purchase Here</a\></li\> " +
-    "<li class=\"dropdown\"\> " +
-      "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\>Meet Our Sponsors<span class=\"caret\"\></span\></a\> " +
-      "<ul class=\"dropdown-menu\"\> " +
-        "<li\><a href=\"passport.html\"\>Sponsor1</a\></li\> " +
-        "<li\><a href=\"creditCardInfo.html\"\>Sponsor2</a\></li\>";
-  } else if(activePage == "purchase"){
-    navbar+="<li\><a href=\"index.html\"\>Home</a\></li\> " +
-    "<li\><a href=\"doorPrices.html\"\>Door Prices</a\></li\> " +
-    "<li class=\"active\"\><a href=\"purchase.html\"\>Purchase Here</a\></li\> " +
-    "<li class=\"dropdown\"\> " +
-      "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\>Meet Our Sponsors<span class=\"caret\"\></span\></a\> " +
-      "<ul class=\"dropdown-menu\"\> " +
-        "<li\><a href=\"passport.html\"\>Sponsor1</a\></li\> " +
-        "<li\><a href=\"creditCardInfo.html\"\>Sponsor2</a\></li\>";
-  }
-
-  navbar +="</ul> " +
+                "<ul class=\"nav navbar-nav\"\>" +
+                  "<li id=\"indexNavbar\"\><a href=\"index.html\"\>Home</a\></li\> " +
+                  "<li id=\"doorPricesNavbar\"\><a href=\"doorPrices.html\"\>Door Prices</a\></li\> " +
+                  "<li id=\"purchaseNavbar\"\><a href=\"purchase.html\"\>Purchase Here</a\></li\> " +
+                  "<li id=\"dropdownNavbar\" class=\"dropdown\"\> " +
+                    "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\>Meet Our Sponsors<span class=\"caret\"\></span\></a\> " +
+                    "<ul class=\"dropdown-menu\"\> " +
+                      "<li\><a href=\"passport.html\"\>Sponsor1</a\></li\> " +
+                      "<li\><a href=\"creditCardInfo.html\"\>Sponsor2</a\></li\>" +
+                    "</ul> " +
                 "</li> " +
               "</ul> " +
             "</div> " +
@@ -52,4 +31,13 @@ function writeNavbar(activePage){
       "</div> " +
     "</div>";
   document.getElementById('navbarDiv').innerHTML = navbar;
+  if(activePage == 'index'){
+    document.getElementById('indexNavbar').classList.add("active");
+  } else if(activePage == 'doorPrices'){
+    document.getElementById('doorPricesNavbar').classList.add("active");
+  } else if(activePage == 'purchase'){
+    document.getElementById('purchaseNavbar').classList.add("active");
+  } else if(activePage == 'dropdown'){
+    document.getElementById('dropdownNavbar').classList.add("active");
+  }
 }
