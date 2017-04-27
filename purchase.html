@@ -153,7 +153,6 @@ Custom Style has some adjustments to tables.
             i = phoneNumber.value.length;
           }
         }
-        console.log(counter);
 
         if(counter == 10 || counter == 11){
           phoneNumber.style.border = "2px solid green";
@@ -166,7 +165,7 @@ Custom Style has some adjustments to tables.
 
       // Reloads page upon hit of submit button - http://stackoverflow.com/questions/33483960/how-to-reload-a-page-on-submit
       function reloadPage(){
-        location.reload(true);
+        window.location.reload();
       }
 
     </script>
