@@ -124,7 +124,50 @@ Custom Style has some adjustments to tables.
         }
       }
 
-      //==================
+      //==============================================
+
+      //Validates Email
+      function validateEmail(){
+        var emailInputValue = document.getElementById('emailInput');
+        if(emailInputValue.value.indexOf('@') > 0 && emailInput.value.indexOf('@') < emailInput.value.indexOf('.') - 1 && emailInputValue.value.indexOf(' ') == -1  && emailInput.value.indexOf('.') != emailInput.value.length - 1){
+          emailInputValue.style.border = "2px solid green";
+        } else{
+          emailInputValue.style.border = "2px solid red";
+        }
+      }
+
+      //==============================================
+
+      //Validates Telephone Number
+      function validatePhoneNumber(){
+        var phoneNumber = document.getElementById('telephoneInput');
+        var counter = 0;
+        for(var i = 0; i < phoneNumber.value.length; i++){
+          var tempChar = phoneNumber.value.charAt(i);
+          if(tempChar >= '0' && tempChar <= '9'){
+            counter++;
+          } else if(tempChar == '-' || tempChar == ' ' || tempChar == '(' || tempChar == ')'){
+
+          } else{
+            counter = 0;
+            i = phoneNumber.value.length;
+          }
+        }
+        console.log(counter);
+
+        if(counter == 10 || counter == 11){
+          phoneNumber.style.border = "2px solid green";
+        } else{
+          phoneNumber.style.border = "2px solid red";
+        }
+      }
+
+      //==============================================
+
+      // Reloads page upon hit of submit button - http://stackoverflow.com/questions/33483960/how-to-reload-a-page-on-submit
+      function reloadPage(){
+        location.reload(true);
+      }
 
     </script>
 
@@ -219,13 +262,13 @@ Custom Style has some adjustments to tables.
         <div class="form-group row">
           <label for="example-email-input" class="col-2 col-form-label">Email</label>
           <div class="col-10">
-            <input class="form-control" type="email" value="bootstrap@example.com" id="emailInput" onclick="removeEmail()">
+            <input class="form-control" type="email" value="bootstrap@example.com" id="emailInput" onclick="removeEmail()"  oninput="validateEmail()">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
           <div class="col-10">
-            <input class="form-control" type="tel" value="1-(555)-555-5555" id="telephoneInput" onclick="removeTelephone()">
+            <input class="form-control" type="tel" value="1-(555)-555-5555" id="telephoneInput" onclick="removeTelephone()" oninput="validatePhoneNumber()">
           </div>
           <div class="bodyTable">
               <table border="1" class="table table-bordered" style="width: 20%; position: absolute; left: 700px; border: 3px solid #381911; border-color: #381911;" id="colorInputLabel">
@@ -390,7 +433,7 @@ Custom Style has some adjustments to tables.
 
                 </p>
 
-                <button type="submit" value="submit" style="color: black;">Submit</button>
+                <button type="submit" value="submit" style="color: black;" onclick="reloadPage()">Submit</button>
             </form>
 
           </div>
