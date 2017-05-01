@@ -126,6 +126,19 @@ Custom Style has some adjustments to tables.
 
       //==============================================
 
+      //Validates Name
+      function validateName(){
+        var nameInputValue = document.getElementById('nameInput');
+        if(nameInputValue.value.length > 0){
+          nameInputValue.style.border = "2px solid green";
+        } else{
+          nameInputValue.style.border = "2px solid red";
+        }
+      }
+
+
+      //==============================================
+
       //Validates Email
       function validateEmail(){
         var emailInputValue = document.getElementById('emailInput');
@@ -221,7 +234,7 @@ Custom Style has some adjustments to tables.
           <div class="form-group row">
           <label for="example-text-input" class="col-2 col-form-label">Name</label>
           <div class="col-10">
-            <input class="form-control" type="text" value="Jerry Smith" id="nameInput" onclick="removeName()">
+            <input class="form-control" type="text" value="Jerry Smith" id="nameInput" onclick="removeName()" oninput="validateName()">
           </div>
         </div>
         <div class="form-group row">
