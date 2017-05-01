@@ -24,6 +24,10 @@ Custom Style has some adjustments to tables.
       var emailChanged = false;
       var telephoneChanged = false;
 
+      var validName = false;
+      var validEmail = false;
+      var validPhoneNumber = false;
+
       function removeName(){
         if(!nameChanged){
           nameChanged = true;
@@ -129,11 +133,14 @@ Custom Style has some adjustments to tables.
       //Validates Name
       function validateName(){
         var nameInputValue = document.getElementById('nameInput');
-        if(nameInputValue.value.length > 0){
+        if(nameInputValue.value.indexOf(' ') > 0 && nameInputValue.value.indexOf(' ') < nameInputValue.value.length - 1){
           nameInputValue.style.border = "2px solid green";
+          validName = true;
         } else{
           nameInputValue.style.border = "2px solid red";
+          validName = false;
         }
+        changeSubmitButton();
       }
 
 
@@ -144,9 +151,12 @@ Custom Style has some adjustments to tables.
         var emailInputValue = document.getElementById('emailInput');
         if(emailInputValue.value.indexOf('@') > 0 && emailInput.value.indexOf('@') < emailInput.value.indexOf('.') - 1 && emailInputValue.value.indexOf(' ') == -1  && emailInput.value.indexOf('.') != emailInput.value.length - 1){
           emailInputValue.style.border = "2px solid green";
+          validEmail = true;
         } else{
           emailInputValue.style.border = "2px solid red";
+          validEmail = false;
         }
+        changeSubmitButton();
       }
 
       //==============================================
@@ -169,12 +179,30 @@ Custom Style has some adjustments to tables.
 
         if(counter == 10 || counter == 11){
           phoneNumber.style.border = "2px solid green";
+          validPhoneNumber = true;
         } else{
           phoneNumber.style.border = "2px solid red";
+          validPhoneNumber = false;
         }
+        changeSubmitButton();
       }
 
       //==============================================
+
+      //Changes Submit Button Style
+      function changeSubmitButton(){
+        var button = document.getElementById('submitButton');
+        button.classList.remove('btn-success');
+        button.classList.remove('btn-danger');
+
+        if(validName && validEmail && validPhoneNumber){
+          button.classList.add('btn-success');
+          button.disabled = false;
+        } else{
+          button.classList.add('btn-danger');
+          button.disabled = true;
+        }
+      }
 
     </script>
 
@@ -413,7 +441,7 @@ Custom Style has some adjustments to tables.
                 </p>
             </form>
 
-              <button type="submit" value="submit" style="color: black;" onclick="reloadPage()" class="btn btn-default">Submit</button>
+              <button type="submit" value="submit" id="submitButton" disabled="true" onclick="reloadPage()" class="btn btn-default">Submit</button>
 
           </div>
           </p>
