@@ -192,10 +192,18 @@ Custom Style has some adjustments to tables.
       //Changes Submit Button Style
       function changeSubmitButton(){
         var button = document.getElementById('submitButton');
+        var choseDoor = false;
+
         button.classList.remove('btn-success');
         button.classList.remove('btn-danger');
 
-        if(validName && validEmail && validPhoneNumber){
+        if(document.getElementById('RedFakeDoor').value != 0 || document.getElementById('BlueFakeDoor').value != 0 || document.getElementById('FancyFakeDoor').value != 0 || document.getElementById('DoubleFakeDoor').value != 0 || document.getElementById('FoodStorageFakeDoor').value != 0 || document.getElementById('CheetoFakeDoor').value != 0 || document.getElementById('CartoonFakeDoor').value != 0){
+          choseDoor = true;
+        }
+
+
+
+        if(validName && validEmail && validPhoneNumber && choseDoor){
           button.classList.add('btn-success');
           button.disabled = false;
         } else{
@@ -321,7 +329,7 @@ Custom Style has some adjustments to tables.
                         <tr>
                             <td>&nbspRed Fake Door</td>
                             <td style="width: 60px;">
-                                <select name="RedFakeDoor" class="form-control">
+                                <select name="RedFakeDoor" id="RedFakeDoor" class="form-control" onchange="changeSubmitButton()">
                       <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -338,7 +346,7 @@ Custom Style has some adjustments to tables.
                         <tr>
                             <td>&nbspBlue Fake Door</td>
                             <td>
-                                <select name="BlueFakeDoor" class="form-control">
+                                <select name="BlueFakeDoor" id="BlueFakeDoor" class="form-control" onchange="changeSubmitButton()">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -355,7 +363,7 @@ Custom Style has some adjustments to tables.
                         <tr>
                             <td>&nbspFancy Fake Door</td>
                             <td>
-                                <select name="FancyFakeDoor" class="form-control">
+                                <select name="FancyFakeDoor" id="FancyFakeDoor" class="form-control" onchange="changeSubmitButton()">
                           <option value="0">0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -372,7 +380,7 @@ Custom Style has some adjustments to tables.
                         <tr>
                             <td>&nbspDouble Fake Door</td>
                             <td>
-                                <select name="DoubleFakeDoor" class="form-control">
+                                <select name="DoubleFakeDoor" id="DoubleFakeDoor" class="form-control" onchange="changeSubmitButton()">
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -389,7 +397,7 @@ Custom Style has some adjustments to tables.
                         <tr>
                             <td>&nbspFood Storage Fake Door&nbsp&nbsp&nbsp&nbsp&nbsp</td>
                             <td>
-                                <select name="FoodStorageFakeDoor" class="form-control">
+                                <select name="FoodStorageFakeDoor" id="FoodStorageFakeDoor" class="form-control" onchange="changeSubmitButton()">
                               <option value="0">0</option>
                               <option value="1">1</option>
                               <option value="2">2</option>
@@ -406,7 +414,7 @@ Custom Style has some adjustments to tables.
                         <tr>
                             <td>&nbspCheeto Fake Door</td>
                             <td>
-                                <select name="CheetoFakeDoor" class="form-control">
+                                <select name="CheetoFakeDoor" id="CheetoFakeDoor" class="form-control" onchange="changeSubmitButton()">
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -423,7 +431,7 @@ Custom Style has some adjustments to tables.
                         <tr>
                             <td>&nbspCartoon Fake Door</td>
                             <td>
-                                <select name="CartoonFakeDoor" class="form-control">
+                                <select name="CartoonFakeDoor" id="CartoonFakeDoor" class="form-control" onchange="changeSubmitButton()">
                                   <option value="0">0</option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
@@ -441,7 +449,7 @@ Custom Style has some adjustments to tables.
                 </p>
             </form>
 
-              <button type="submit" value="submit" id="submitButton" disabled="true" onclick="reloadPage()" class="btn btn-default">Submit</button>
+              <button type="submit" value="submit" id="submitButton" disabled="true" class="btn btn-default">Submit</button>
 
           </div>
           </p>
