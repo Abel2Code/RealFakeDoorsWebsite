@@ -134,7 +134,7 @@ Custom Style has some adjustments to tables.
       //Validates Name
       function validateName(){
         var nameInputValue = document.getElementById('nameInput');
-       if(nameInputValue.value.indexOf(' ') > 0 && nameInputValue.value.indexOf(' ') < nameInputValue.value.length - 1){
+       if(nameInputValue.value.trim().indexOf(' ') > 0 && nameInputValue.value.trim().indexOf(' ') < nameInputValue.value.length - 1){
          nameInputValue.style.border = "2px solid green";
          validName = true;
        } else{
@@ -266,7 +266,7 @@ Custom Style has some adjustments to tables.
 
     <div class="container marketing">
       <div class="row featurette">
-        <div class="col-md-7">
+        <div class="col-md-7" style="padding-left: 30px;">
           <div class="form-group row">
             <h2 class="featurette-heading" style="color: black;">Here is where you buy some real fake doors!</h2>
               <div class="col-10">
