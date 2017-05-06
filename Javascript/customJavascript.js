@@ -6,8 +6,8 @@ function writeNavbar(activePage){
                   "<li id=\"dropdownNavbar\" class=\"dropdown\"\> " +
                     "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\>Meet Our Sponsors<span class=\"caret\"\></span\></a\> " +
                     "<ul class=\"dropdown-menu\"\> " +
-                      "<li\><a href=\"passport.html\"\>Sponsor1</a\></li\> " +
-                      "<li\><a href=\"creditCardInfo.html\"\>Sponsor2</a\></li\>" +
+                      "<li id=\"antsInMyEyesNavbar\"\><a href=\"AntsInMyEyes.html\"\>Sponsor1</a\></li\> " +
+                      "<li\><a href=\".html\"\>Sponsor2</a\></li\>" +
                     "</ul> " +
                 "</li> " +
               "</ul> ";
@@ -18,7 +18,8 @@ function writeNavbar(activePage){
     document.getElementById('doorPricesNavbar').classList.add("active");
   } else if(activePage == 'purchase'){
     document.getElementById('purchaseNavbar').classList.add("active");
-  } else if(activePage == 'dropdown'){
+  } else if(activePage == 'AntsInMyEyes'){
     document.getElementById('dropdownNavbar').classList.add("active");
+    document.getElementById('antsInMyEyesNavbar').classList.add("active");
   }
 }
