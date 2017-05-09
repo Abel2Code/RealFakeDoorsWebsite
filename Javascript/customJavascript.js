@@ -6,8 +6,8 @@ function writeNavbar(activePage){
                   "<li id=\"dropdownNavbar\" class=\"dropdown\"\> " +
                     "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\>Meet Our Sponsors<span class=\"caret\"\></span\></a\> " +
                     "<ul class=\"dropdown-menu\"\> " +
-                      "<li id=\"antsInMyEyesNavbar\"\><a href=\"AntsInMyEyes.html\"\>Sponsor1</a\></li\> " +
-                      "<li\><a href=\".html\"\>Sponsor2</a\></li\>" +
+                      "<li id=\"antsInMyEyesNavbar\"\><a href=\"AntsInMyEyes.html\"\>Ants in my Eyes Johnson Electronics</a\></li\> " +
+                      "<li\><a href=\"SaturdayNightLive.html\"\>Saturday Night Live</a\></li\>" +
                     "</ul> " +
                 "</li> " +
               "</ul> ";
@@ -21,5 +21,8 @@ function writeNavbar(activePage){
   } else if(activePage == 'AntsInMyEyes'){
     document.getElementById('dropdownNavbar').classList.add("active");
     document.getElementById('antsInMyEyesNavbar').classList.add("active");
+  } else if(activePage == 'SaturdayNightLive'){
+    document.getElementById('saturdayNightLive').classList.add("active");
+    document.getElementById('dropdownNavbar').classList.add("active");
   }
 }
