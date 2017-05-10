@@ -53,15 +53,6 @@ Custom Style has some adjustments to tables.
 
     //==============================================
 
-    //Changes text color
-    function changeTextColor() {
-      var colorInput = document.getElementById("colorInput").value;
-      var colorInputLabel = document.getElementById("colorInputLabel");
-      colorInputLabel.style.borderColor = colorInput;
-    }
-
-    //==============================================
-
     //Calculator Logic
     var firstValue = 0;
     var secondValue = 0;
@@ -222,8 +213,6 @@ Custom Style has some adjustments to tables.
     //==============================================
   </script>
 
-
-
   <!-- End of custom Javascript functions -->
 
   <title>Real Fake Doors</title>
@@ -243,6 +232,9 @@ Custom Style has some adjustments to tables.
 
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   <script src="Javascript/customJavascript.js"></script>
 
@@ -254,6 +246,38 @@ Custom Style has some adjustments to tables.
 
   <!-- Custom styles for this template -->
   <link href="carousel.css" rel="stylesheet">
+  <style>
+.sliderbox {
+  width: 200px;
+  padding-right: 20px;
+}
+.textbox {
+  font-size: 18pt;
+  font-family: sans-serif;
+}
+#red-slider .ui-slider-range { background: rgb(0,0,0); }
+#green-slider .ui-slider-range { background: rgb(0,0,0); }
+#blue-slider .ui-slider-range { background: rgb(0,0,0); }
+  </style>
+  <script>
+    var red = 0;
+    var green = 0;
+    var blue = 0;
+
+    function changeColor(){
+      $("#colorInputLabel").css("border","3px solid rgb(" + red + "," + green + "," + blue +")");
+    }
+
+    function updateSlider(color){
+      if(color == 'red'){
+        $("#red-slider .ui-slider-range").css("background","rgb(" + red + ",0,0)")
+      } else if(color == 'green'){
+        $("#green-slider .ui-slider-range").css("background","rgb(0," + green + ",0)");
+      } else if(color == 'blue'){
+        $("#blue-slider .ui-slider-range").css("background","rgb(0,0," + blue +")");
+      }
+    }
+  </script>
 </head>
 <!-- NAVBAR
 ================================================== -->
@@ -296,7 +320,23 @@ Custom Style has some adjustments to tables.
           <h2 class="featurette-heading" style="color: black;">Here is where you buy some real fake doors!</h2>
           <div class="col-10">
             <label for="choosing your color" class="col-2 col-form-label">Choose a door color!</label>
-            <input class="form-control" type="color" value="#000000" id="colorInput" onchange="changeTextColor()">
+            <table>
+              <tr>
+                <td class="textbox" width="50px">R</td>
+                <td class="sliderbox" ><div id="red-slider"></div></td>
+                <td><div id="red-value" ></div><td>
+              </tr>
+              <tr>
+                <td class="textbox" width="50px" >G</td>
+                <td class="sliderbox" ><div id="green-slider"></div></td>
+                <td><div id="green-value" ></div><td>
+              </tr>
+              <tr>
+                <td class="textbox" width="50px" >B</td>
+                <td class="sliderbox" ><div id="blue-slider"></div></td>
+                <td><div id="blue-value" ></div><td>
+              </tr>
+            </table>
           </div>
         </div>
         <div class="form-group row">
@@ -353,6 +393,7 @@ Custom Style has some adjustments to tables.
               </tr>
             </table>
           </div>
+          
           <form action="" method="POST">
             <br />
 
@@ -504,7 +545,7 @@ Custom Style has some adjustments to tables.
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
   <script>
     window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')
   </script>
@@ -514,5 +555,54 @@ Custom Style has some adjustments to tables.
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
+<script>
+  $(document).ready(function() {
+    $( "#red-slider" ).slider({
+      range: "min",
+      value: 0,
+      min: 0,
+      max: 255,
+      create: function() {
+        $( "#red-value" ).text( 0 );
+      },
+      slide: function( event, ui ) {
+        $( "#red-value" ).text( ui.value );
+        red = ui.value;
+        changeColor();
+        updateSlider('red');
+      }
+    });
+    $( "#green-slider" ).slider({
+      range: "min",
+      value: 0,
+      min: 0,
+      max: 255,
+      create: function() {
+        $( "#green-value" ).text( 0 );
+      },
+      slide: function( event, ui ) {
+        green = ui.value;
+        $( "#green-value" ).text( ui.value );
+        changeColor();
+        updateSlider('green');
+      }
+    });
+    $( "#blue-slider" ).slider({
+      range: "min",
+      value: 0,
+      min: 0,
+      max: 255,
+      create: function() {
+        $( "#blue-value" ).text( 0 );
+      },
+      slide: function( event, ui ) {
+        blue = ui.value;
+        $( "#blue-value" ).text( ui.value );
+        changeColor();
+        updateSlider('blue');
+      }
+    });
 
+  });
+</script>
 </html>
