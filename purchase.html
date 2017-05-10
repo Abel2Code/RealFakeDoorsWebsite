@@ -388,55 +388,20 @@ Custom Style has some adjustments to tables.
           <div class="col-10">
             <div id="datepicker"></div>
           </div>
-          <div class="bodyTable">
-            <table class="table table-bordered" style="width: 20%; position: absolute; left: 700px; border: 3px solid #381911; border-color: #381911;" id="colorInputLabel">
-              <tr>
-                <td colspan="4">
-                  <p id="label">|</p>
-                </td>
-                <!-- There was a bug where I could not align middle with th because of dist/css/bootstrap.min.css -->
-              </tr>
-
-              <tr>
-                <td><button style="width: 50px;" onclick="pressNumber(1)" class="btn btn-default">1</button>
-                  <td><button style="width: 50px;" onclick="pressNumber(2)" class="btn btn-default">2</button>
-                    <td><button style="width: 50px;" onclick="pressNumber(3)" class="btn btn-default">3</button>
-                      <td><button style="width: 50px;" onclick="pressSymbol('+')" class="btn btn-default">+</button>
-              </tr>
-
-              <tr>
-                <td><button style="width: 50px;" onclick="pressNumber(4)" class="btn btn-default">4</button>
-                  <td><button style="width: 50px;" onclick="pressNumber(5)" class="btn btn-default">5</button>
-                    <td><button style="width: 50px;" onclick="pressNumber(6)" class="btn btn-default">6</button>
-                      <td><button style="width: 50px;" onclick="pressSymbol('-')" class="btn btn-default">-</button>
-              </tr>
-
-              <tr>
-                <td><button style="width: 50px;" onclick="pressNumber(7)" class="btn btn-default">7</button>
-                  <td><button style="width: 50px;" onclick="pressNumber(8)" class="btn btn-default">8</button>
-                    <td><button style="width: 50px;" onclick="pressNumber(9)" class="btn btn-default">9</button>
-                      <td><button style="width: 50px;" onclick="pressSymbol('x')" class="btn btn-default">x</button>
-              </tr>
-              <tr>
-                <td><button style="width: 50px;" onclick="pressSymbol('C')" class="btn btn-default">C</button>
-                  <td><button style="width: 50px;" onclick="pressNumber(0)" class="btn btn-default">0</button>
-                    <td><button style="width: 50px;" onclick="pressSymbol('=')" class="btn btn-default">=</button>
-                      <td><button style="width: 50px;" onclick="pressSymbol('/')" class="btn btn-default">/</button>
-              </tr>
-            </table>
-          </div>
 
           <form action="" method="POST">
             <br />
-
-            <table border="1" bgcolor="orange" class="bodyTable" style="color: black">
+            <table style="width: 1000px;">
               <tr>
-                <th colspan="2"> &nbspHow many doors would you like to buy?: </th>
-              </tr>
-              <tr>
-                <td>&nbspRed Fake Door</td>
-                <td style="width: 60px;">
-                  <select name="RedFakeDoor" id="RedFakeDoor" class="form-control" onchange="checkDoorChosen()">
+                <td>
+                  <table border="1" bgcolor="orange" class="bodyTable" style="color: black">
+                    <tr>
+                      <th colspan="2"> &nbspHow many doors would you like to buy?: </th>
+                    </tr>
+                    <tr>
+                      <td>&nbspRed Fake Door</td>
+                      <td style="width: 60px;">
+                        <select name="RedFakeDoor" id="RedFakeDoor" class="form-control" onchange="checkDoorChosen()">
                       <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -448,12 +413,12 @@ Custom Style has some adjustments to tables.
                       <option value="8">8</option>
                       <option value="9">9</option>
                     </select> </td>
-              </tr>
+                    </tr>
 
-              <tr>
-                <td>&nbspBlue Fake Door</td>
-                <td>
-                  <select name="BlueFakeDoor" id="BlueFakeDoor" class="form-control" onchange="checkDoorChosen()">
+                    <tr>
+                      <td>&nbspBlue Fake Door</td>
+                      <td>
+                        <select name="BlueFakeDoor" id="BlueFakeDoor" class="form-control" onchange="checkDoorChosen()">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -465,12 +430,12 @@ Custom Style has some adjustments to tables.
                         <option value="8">8</option>
                         <option value="9">9</option>
                       </select> </td>
-              </tr>
+                    </tr>
 
-              <tr>
-                <td>&nbspFancy Fake Door</td>
-                <td>
-                  <select name="FancyFakeDoor" id="FancyFakeDoor" class="form-control" onchange="checkDoorChosen()">
+                    <tr>
+                      <td>&nbspFancy Fake Door</td>
+                      <td>
+                        <select name="FancyFakeDoor" id="FancyFakeDoor" class="form-control" onchange="checkDoorChosen()">
                           <option value="0">0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -482,12 +447,12 @@ Custom Style has some adjustments to tables.
                           <option value="8">8</option>
                           <option value="9">9</option>
                         </select> </td>
-              </tr>
+                    </tr>
 
-              <tr>
-                <td>&nbspDouble Fake Door</td>
-                <td>
-                  <select name="DoubleFakeDoor" id="DoubleFakeDoor" class="form-control" onchange="checkDoorChosen()">
+                    <tr>
+                      <td>&nbspDouble Fake Door</td>
+                      <td>
+                        <select name="DoubleFakeDoor" id="DoubleFakeDoor" class="form-control" onchange="checkDoorChosen()">
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -499,12 +464,12 @@ Custom Style has some adjustments to tables.
                             <option value="8">8</option>
                             <option value="9">9</option>
                           </select> </td>
-              </tr>
+                    </tr>
 
-              <tr>
-                <td>&nbspFood Storage Fake Door&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-                <td>
-                  <select name="FoodStorageFakeDoor" id="FoodStorageFakeDoor" class="form-control" onchange="checkDoorChosen()">
+                    <tr>
+                      <td>&nbspFood Storage Fake Door</td>
+                      <td>
+                        <select name="FoodStorageFakeDoor" id="FoodStorageFakeDoor" class="form-control" onchange="checkDoorChosen()">
                               <option value="0">0</option>
                               <option value="1">1</option>
                               <option value="2">2</option>
@@ -516,12 +481,12 @@ Custom Style has some adjustments to tables.
                               <option value="8">8</option>
                               <option value="9">9</option>
                             </select> </td>
-              </tr>
+                    </tr>
 
-              <tr>
-                <td>&nbspCheeto Fake Door</td>
-                <td>
-                  <select name="CheetoFakeDoor" id="CheetoFakeDoor" class="form-control" onchange="checkDoorChosen()">
+                    <tr>
+                      <td>&nbspCheeto Fake Door</td>
+                      <td>
+                        <select name="CheetoFakeDoor" id="CheetoFakeDoor" class="form-control" onchange="checkDoorChosen()">
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -533,12 +498,12 @@ Custom Style has some adjustments to tables.
                                 <option value="8">8</option>
                                 <option value="9">9</option>
                               </select> </td>
-              </tr>
+                    </tr>
 
-              <tr>
-                <td>&nbspCartoon Fake Door</td>
-                <td>
-                  <select name="CartoonFakeDoor" id="CartoonFakeDoor" class="form-control" onchange="checkDoorChosen()">
+                    <tr>
+                      <td>&nbspCartoon Fake Door</td>
+                      <td>
+                        <select name="CartoonFakeDoor" id="CartoonFakeDoor" class="form-control" onchange="checkDoorChosen()">
                                   <option value="0">0</option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
@@ -550,9 +515,50 @@ Custom Style has some adjustments to tables.
                                   <option value="8">8</option>
                                   <option value="9">9</option>
                                 </select> </td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <div class="bodyTable">
+                    <table class="table table-bordered" style="margin-top: 5px; width: 20%; margin-left: 10px; border: 3px solid #381911; border-color: #381911;" id="colorInputLabel">
+                      <tr>
+                        <td colspan="4">
+                          <p id="label">|</p>
+                        </td>
+                        <!-- There was a bug where I could not align middle with th because of dist/css/bootstrap.min.css -->
+                      </tr>
+
+                      <tr>
+                        <td><button style="width: 50px;" onclick="pressNumber(1)" class="btn btn-default">1</button>
+                          <td><button style="width: 50px;" onclick="pressNumber(2)" class="btn btn-default">2</button>
+                            <td><button style="width: 50px;" onclick="pressNumber(3)" class="btn btn-default">3</button>
+                              <td><button style="width: 50px;" onclick="pressSymbol('+')" class="btn btn-default">+</button>
+                      </tr>
+
+                      <tr>
+                        <td><button style="width: 50px;" onclick="pressNumber(4)" class="btn btn-default">4</button>
+                          <td><button style="width: 50px;" onclick="pressNumber(5)" class="btn btn-default">5</button>
+                            <td><button style="width: 50px;" onclick="pressNumber(6)" class="btn btn-default">6</button>
+                              <td><button style="width: 50px;" onclick="pressSymbol('-')" class="btn btn-default">-</button>
+                      </tr>
+
+                      <tr>
+                        <td><button style="width: 50px;" onclick="pressNumber(7)" class="btn btn-default">7</button>
+                          <td><button style="width: 50px;" onclick="pressNumber(8)" class="btn btn-default">8</button>
+                            <td><button style="width: 50px;" onclick="pressNumber(9)" class="btn btn-default">9</button>
+                              <td><button style="width: 50px;" onclick="pressSymbol('x')" class="btn btn-default">x</button>
+                      </tr>
+                      <tr>
+                        <td><button style="width: 50px;" onclick="pressSymbol('C')" class="btn btn-default">C</button>
+                          <td><button style="width: 50px;" onclick="pressNumber(0)" class="btn btn-default">0</button>
+                            <td><button style="width: 50px;" onclick="pressSymbol('=')" class="btn btn-default">=</button>
+                              <td><button style="width: 50px;" onclick="pressSymbol('/')" class="btn btn-default">/</button>
+                      </tr>
+                    </table>
+                  </div>
+                  </td>
               </tr>
             </table>
-
 
             </p>
 
@@ -636,7 +642,10 @@ Custom Style has some adjustments to tables.
         updateSlider('blue');
       }
     });
-     $( "#datepicker" ).datepicker({ minDate: +3, maxDate: "+1M" });
+    $("#datepicker").datepicker({
+      minDate: +3,
+      maxDate: "+1M"
+    });
   });
 </script>
 
