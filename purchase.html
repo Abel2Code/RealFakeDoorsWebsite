@@ -211,6 +211,33 @@ Custom Style has some adjustments to tables.
     }
 
     //==============================================
+
+    function executeProgressBar(){
+      var progressbar = $( "#progressbar" ),
+        progressLabel = $( ".progress-label" );
+
+      progressbar.progressbar({
+        value: false,
+        change: function() {
+          progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+        },
+        complete: function() {
+          progressLabel.text( "Complete!" );
+        }
+      });
+
+      function progress() {
+        var val = progressbar.progressbar( "value" ) || 0;
+
+        progressbar.progressbar( "value", val + 2 );
+
+        if ( val < 99 ) {
+          setTimeout( progress, 80 );
+        }
+      }
+
+      setTimeout( progress, 2000 );
+    }
   </script>
 
   <!-- End of custom Javascript functions -->
@@ -258,15 +285,25 @@ Custom Style has some adjustments to tables.
     }
 
     #red-slider .ui-slider-range {
-      background: rgb(0, 0, 0);
+      background: rgb(255, 0, 0);
     }
 
     #green-slider .ui-slider-range {
-      background: rgb(0, 0, 0);
+      background: rgb(0, 255, 0);
     }
 
     #blue-slider .ui-slider-range {
-      background: rgb(0, 0, 0);
+      background: rgb(0, 0, 255);
+    }
+    .ui-progressbar {
+    position: relative;
+    }
+    .progress-label {
+      position: absolute;
+      left: 50%;
+      top: 4px;
+      font-weight: bold;
+      text-shadow: 1px 1px 0 #fff;
     }
   </style>
   <script>
@@ -329,8 +366,8 @@ Custom Style has some adjustments to tables.
       <div class="col-md-7" style="padding-left: 30px;">
         <div class="form-group row">
           <h2 class="featurette-heading" style="color: black;">Here is where you buy some real fake doors!</h2>
-          <div id="doorColor" style="position: absolute; left: 700px; background-color: rgb(0,0,0);">
-            <img style="height: 300px; opacity: 0.5;" src="http://teaone.net/uploads/fotos/white-door-interior_3274_644_1400.jpg" />
+          <div id="doorColor" style="position: absolute; left: 700px; background-color: rgb(255,255,255);" class="ui-widget-content">
+            <img id="resizable" style="height: 300px; opacity: 0.5;" src="http://teaone.net/uploads/fotos/white-door-interior_3274_644_1400.jpg" />
           </div>
           <div class="col-10">
             <label for="choosing your color" class="col-2 col-form-label">Choose a door color!</label>
@@ -368,19 +405,19 @@ Custom Style has some adjustments to tables.
         <div class="form-group row">
           <label for="example-text-input" class="col-2 col-form-label">Name</label>
           <div class="col-10">
-            <input class="form-control" type="text" value="Jerry Smith" id="nameInput" onclick="removeName()" oninput="validateName()">
+            <input class="form-control" type="text" value="Jerry Smith" id="nameInput" title="Please Provide Your Name" onclick="removeName()" oninput="validateName()">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-email-input" class="col-2 col-form-label">Email</label>
           <div class="col-10">
-            <input class="form-control" type="email" value="bootstrap@example.com" id="emailInput" onclick="removeEmail()" oninput="validateEmail()">
+            <input class="form-control" type="email" value="bootstrap@example.com" id="emailInput" title="Please Provide Your Email Address" onclick="removeEmail()" oninput="validateEmail()">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
           <div class="col-10">
-            <input class="form-control" type="tel" value="1-(555)-555-5555" id="telephoneInput" onclick="removeTelephone()" oninput="validatePhoneNumber()">
+            <input class="form-control" type="tel" value="1-(555)-555-5555" id="telephoneInput" title="Please Provide Your Telephone Number" onclick="removeTelephone()" oninput="validatePhoneNumber()">
           </div>
         </div>
         <div class="form-group row">
@@ -563,12 +600,18 @@ Custom Style has some adjustments to tables.
             </p>
 
           </form>
+          <button type="submit" value="submit" id="submitButton" disabled="true" class="btn btn-default" onclick="executeProgressBar()">Submit</button>
 
-          <button type="submit" value="submit" id="submitButton" disabled="true" class="btn btn-default">Submit</button>
+
 
         </div>
         </p>
       </div>
+    </div>
+    <!-- Submit Popup Window -->
+    <div id="dialog" title="Attempting to Order">
+      <!-- <p >Your purchase was successful!</p> -->
+      <div id="progressbar"><div class="progress-label">Loading...</div></div>
     </div>
 
     <!-- /END THE FEATURETTES -->
@@ -596,14 +639,15 @@ Custom Style has some adjustments to tables.
   <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 <script>
+  //Code integrated from JqueryUI.com
   $(document).ready(function() {
     $("#red-slider").slider({
       range: "min",
-      value: 0,
+      value: 255,
       min: 0,
       max: 255,
       create: function() {
-        $("#red-value").text(0);
+        $("#red-value").text(255);
       },
       slide: function(event, ui) {
         $("#red-value").text(ui.value);
@@ -614,11 +658,11 @@ Custom Style has some adjustments to tables.
     });
     $("#green-slider").slider({
       range: "min",
-      value: 0,
+      value: 255,
       min: 0,
       max: 255,
       create: function() {
-        $("#green-value").text(0);
+        $("#green-value").text(255);
       },
       slide: function(event, ui) {
         green = ui.value;
@@ -629,11 +673,11 @@ Custom Style has some adjustments to tables.
     });
     $("#blue-slider").slider({
       range: "min",
-      value: 0,
+      value: 255,
       min: 0,
       max: 255,
       create: function() {
-        $("#blue-value").text(0);
+        $("#blue-value").text(255);
       },
       slide: function(event, ui) {
         blue = ui.value;
@@ -646,6 +690,30 @@ Custom Style has some adjustments to tables.
       minDate: +3,
       maxDate: "+1M"
     });
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      modal: true,
+      show: {
+        effect: "blind",
+        duration: 5
+      },
+      hide: {
+        // effect: "explode",
+        // duration: 5
+      }
+    });
+
+    $( "#submitButton" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+    var tooltips = $( "[title]" ).tooltip({
+      position: {
+        my: "left top",
+        at: "right+5 top-5",
+        collision: "none"
+      }
+    });
+    $( "#resizable" ).resizable();
   });
 </script>
 
