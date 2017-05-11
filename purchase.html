@@ -208,6 +208,15 @@ Custom Style has some adjustments to tables.
         button.classList.add('btn-danger');
         button.disabled = true;
       }
+
+      var price = document.getElementById('RedFakeDoor').value * 23.37 + document.getElementById('BlueFakeDoor').value * 28.41 + document.getElementById('FancyFakeDoor').value * 43.99 + document.getElementById('DoubleFakeDoor').value * 211.33 + document.getElementById('FoodStorageFakeDoor').value * 101.21;
+
+      price +=document.getElementById('CheetoFakeDoor').value * 52.11 + document.getElementById('CartoonFakeDoor').value * 0.9;
+      price = Math.round(100*price)/100;
+      document.getElementById('submitButton').innerHTML = 'Total Price: ' + price;
+
+         // round X to hundredths
+      // $(#submitButton).text("Total Price: " +() document.getElementById('RedFakeDoor').value * 23.37 + document.getElementById('BlueFakeDoor').value * 28.41 + document.getElementById('FancyFakeDoor').value * 43.99 + document.getElementById('DoubleFDoubleFakeDoor').value * 211.33 + document.getElementById('FoodStorageFakeDoor').value * 101.21 + document.getElementById('CheetoFakeDoor').value * 52.11 + document.getElementById('CartoonFakeDoor').value * 0.99));
     }
 
     //==============================================
@@ -307,9 +316,9 @@ Custom Style has some adjustments to tables.
     }
   </style>
   <script>
-    var red = 0;
-    var green = 0;
-    var blue = 0;
+    var red = 255;
+    var green = 255;
+    var blue = 255;
 
     function changeColor() {
       $("#colorInputLabel").css("border", "3px solid rgb(" + red + "," + green + "," + blue + ")");
