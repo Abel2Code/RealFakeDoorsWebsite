@@ -209,43 +209,60 @@ Custom Style has some adjustments to tables.
         button.disabled = true;
       }
 
-      var price = document.getElementById('RedFakeDoor').value * 23.37 + document.getElementById('BlueFakeDoor').value * 28.41 + document.getElementById('FancyFakeDoor').value * 43.99 + document.getElementById('DoubleFakeDoor').value * 211.33 + document.getElementById('FoodStorageFakeDoor').value * 101.21;
+      var price = document.getElementById('RedFakeDoor').value * 23.37 + document.getElementById('BlueFakeDoor').value * 28.41 + document.getElementById('FancyFakeDoor').value * 43.99 + document.getElementById('DoubleFakeDoor').value * 211.33 +
+        document.getElementById('FoodStorageFakeDoor').value * 101.21;
 
-      price +=document.getElementById('CheetoFakeDoor').value * 52.11 + document.getElementById('CartoonFakeDoor').value * 0.9;
-      price = Math.round(100*price)/100;
+      price += document.getElementById('CheetoFakeDoor').value * 52.11 + document.getElementById('CartoonFakeDoor').value * 0.9;
+      price = Math.round(100 * price) / 100;
       document.getElementById('submitButton').innerHTML = 'Total Price: ' + price;
 
-         // round X to hundredths
+      // round X to hundredths
       // $(#submitButton).text("Total Price: " +() document.getElementById('RedFakeDoor').value * 23.37 + document.getElementById('BlueFakeDoor').value * 28.41 + document.getElementById('FancyFakeDoor').value * 43.99 + document.getElementById('DoubleFDoubleFakeDoor').value * 211.33 + document.getElementById('FoodStorageFakeDoor').value * 101.21 + document.getElementById('CheetoFakeDoor').value * 52.11 + document.getElementById('CartoonFakeDoor').value * 0.99));
     }
 
     //==============================================
 
-    function executeProgressBar(){
-      var progressbar = $( "#progressbar" ),
-        progressLabel = $( ".progress-label" );
+    //JQuery logic
+    function executeProgressBar() {
+      var progressbar = $("#progressbar"),
+        progressLabel = $(".progress-label");
 
       progressbar.progressbar({
         value: false,
         change: function() {
-          progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+          progressLabel.text(progressbar.progressbar("value") + "%");
         },
         complete: function() {
-          progressLabel.text( "Complete!" );
+          progressLabel.text("Complete!");
         }
       });
 
       function progress() {
-        var val = progressbar.progressbar( "value" ) || 0;
+        var val = progressbar.progressbar("value") || 0;
 
-        progressbar.progressbar( "value", val + 2 );
+        progressbar.progressbar("value", val + 2);
 
-        if ( val < 99 ) {
-          setTimeout( progress, 80 );
+        if (val < 99) {
+          setTimeout(progress, 80);
         }
       }
 
-      setTimeout( progress, 2000 );
+      setTimeout(progress, 2000);
+    }
+
+    function changeColor() {
+      $("#colorInputLabel").css("border", "3px solid rgb(" + $("#red-value").text() + "," + $("#green-value").text() + "," + $("#blue-value").text() + ")");
+      $("#doorColor").css("background-color", "rgb(" + $("#red-value").text() + "," + $("#green-value").text() + "," + $("#blue-value").text() + ")");
+    }
+
+    function updateSlider(color) {
+      if (color == 'red') {
+        $("#red-slider .ui-slider-range").css("background", "rgb(" + $("#red-value").text() + ",0,0)")
+      } else if (color == 'green') {
+        $("#green-slider .ui-slider-range").css("background", "rgb(0," + $("#green-value").text() + ",0)");
+      } else if (color == 'blue') {
+        $("#blue-slider .ui-slider-range").css("background", "rgb(0,0," + $("#blue-value").text() + ")");
+      }
     }
   </script>
 
@@ -282,26 +299,6 @@ Custom Style has some adjustments to tables.
 
   <!-- Custom styles for this template -->
   <link href="carousel.css" rel="stylesheet">
-  <script>
-    var red = 0;
-    var green = 0;
-    var blue = 0;
-
-    function changeColor() {
-      $("#colorInputLabel").css("border", "3px solid rgb(" + red + "," + green + "," + blue + ")");
-      $("#doorColor").css("background-color", "rgb(" + red + "," + green + "," + blue + ")");
-    }
-
-    function updateSlider(color) {
-      if (color == 'red') {
-        $("#red-slider .ui-slider-range").css("background", "rgb(" + red + ",0,0)")
-      } else if (color == 'green') {
-        $("#green-slider .ui-slider-range").css("background", "rgb(0," + green + ",0)");
-      } else if (color == 'blue') {
-        $("#blue-slider .ui-slider-range").css("background", "rgb(0,0," + blue + ")");
-      }
-    }
-  </script>
 </head>
 <!-- NAVBAR
 ================================================== -->
@@ -587,7 +584,9 @@ Custom Style has some adjustments to tables.
     <!-- Submit Popup Window -->
     <div id="dialog" title="Attempting to Order">
       <!-- <p >Your purchase was successful!</p> -->
-      <div id="progressbar"><div class="progress-label">Loading...</div></div>
+      <div id="progressbar">
+        <div class="progress-label">Loading...</div>
+      </div>
     </div>
 
     <!-- /END THE FEATURETTES -->
@@ -627,7 +626,6 @@ Custom Style has some adjustments to tables.
       },
       slide: function(event, ui) {
         $("#red-value").text(ui.value);
-        red = ui.value;
         changeColor();
         updateSlider('red');
       }
@@ -641,7 +639,6 @@ Custom Style has some adjustments to tables.
         $("#green-value").text(0);
       },
       slide: function(event, ui) {
-        green = ui.value;
         $("#green-value").text(ui.value);
         changeColor();
         updateSlider('green');
@@ -656,7 +653,6 @@ Custom Style has some adjustments to tables.
         $("#blue-value").text(0);
       },
       slide: function(event, ui) {
-        blue = ui.value;
         $("#blue-value").text(ui.value);
         changeColor();
         updateSlider('blue');
@@ -666,7 +662,7 @@ Custom Style has some adjustments to tables.
       minDate: +3,
       maxDate: "+1M"
     });
-    $( "#dialog" ).dialog({
+    $("#dialog").dialog({
       autoOpen: false,
       modal: true,
       show: {
@@ -679,17 +675,17 @@ Custom Style has some adjustments to tables.
       }
     });
 
-    $( "#submitButton" ).on( "click", function() {
-      $( "#dialog" ).dialog( "open" );
+    $("#submitButton").on("click", function() {
+      $("#dialog").dialog("open");
     });
-    var tooltips = $( "[title]" ).tooltip({
+    var tooltips = $("[title]").tooltip({
       position: {
         my: "left top",
         at: "right+5 top-5",
         collision: "none"
       }
     });
-    $( "#resizable" ).resizable();
+    $("#resizable").resizable();
   });
 </script>
 
