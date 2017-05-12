@@ -282,43 +282,10 @@ Custom Style has some adjustments to tables.
 
   <!-- Custom styles for this template -->
   <link href="carousel.css" rel="stylesheet">
-  <style>
-    .sliderbox {
-      width: 200px;
-      padding-right: 20px;
-    }
-
-    .textbox {
-      font-size: 18pt;
-      font-family: sans-serif;
-    }
-
-    #red-slider .ui-slider-range {
-      background: rgb(255, 0, 0);
-    }
-
-    #green-slider .ui-slider-range {
-      background: rgb(0, 255, 0);
-    }
-
-    #blue-slider .ui-slider-range {
-      background: rgb(0, 0, 255);
-    }
-    .ui-progressbar {
-    position: relative;
-    }
-    .progress-label {
-      position: absolute;
-      left: 50%;
-      top: 4px;
-      font-weight: bold;
-      text-shadow: 1px 1px 0 #fff;
-    }
-  </style>
   <script>
-    var red = 255;
-    var green = 255;
-    var blue = 255;
+    var red = 0;
+    var green = 0;
+    var blue = 0;
 
     function changeColor() {
       $("#colorInputLabel").css("border", "3px solid rgb(" + red + "," + green + "," + blue + ")");
@@ -375,7 +342,7 @@ Custom Style has some adjustments to tables.
       <div class="col-md-7" style="padding-left: 30px;">
         <div class="form-group row">
           <h2 class="featurette-heading" style="color: black;">Here is where you buy some real fake doors!</h2>
-          <div id="doorColor" style="position: absolute; left: 700px; background-color: rgb(255,255,255);" class="ui-widget-content">
+          <div id="doorColor" style="position: absolute; left: 700px; background-color: rgb(0,0,0);" class="ui-widget-content">
             <img id="resizable" style="height: 300px; opacity: 0.5;" src="http://teaone.net/uploads/fotos/white-door-interior_3274_644_1400.jpg" />
           </div>
           <div class="col-10">
@@ -652,11 +619,11 @@ Custom Style has some adjustments to tables.
   $(document).ready(function() {
     $("#red-slider").slider({
       range: "min",
-      value: 255,
+      value: 0,
       min: 0,
       max: 255,
       create: function() {
-        $("#red-value").text(255);
+        $("#red-value").text(0);
       },
       slide: function(event, ui) {
         $("#red-value").text(ui.value);
@@ -667,11 +634,11 @@ Custom Style has some adjustments to tables.
     });
     $("#green-slider").slider({
       range: "min",
-      value: 255,
+      value: 0,
       min: 0,
       max: 255,
       create: function() {
-        $("#green-value").text(255);
+        $("#green-value").text(0);
       },
       slide: function(event, ui) {
         green = ui.value;
@@ -682,11 +649,11 @@ Custom Style has some adjustments to tables.
     });
     $("#blue-slider").slider({
       range: "min",
-      value: 255,
+      value: 0,
       min: 0,
       max: 255,
       create: function() {
-        $("#blue-value").text(255);
+        $("#blue-value").text(0);
       },
       slide: function(event, ui) {
         blue = ui.value;
