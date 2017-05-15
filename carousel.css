@@ -65,10 +65,7 @@ body {
 
 .carousel .item {
   height: 500px;
-  background-image: url(http://img.archiexpo.com/images_ae/photo-g/71433-6065305.jpg);
-  /*Background color was edited. Original Code:
-    background-color: #777;
-  */
+  /*background-color: #777;*/
 }
 
 .carousel-inner>.item>img {

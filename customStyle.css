@@ -68,3 +68,7 @@ position: relative;
   font-weight: bold;
   text-shadow: 1px 1px 0 #fff;
 }
+
+.carousel .item {
+  background-image: url(http://img.archiexpo.com/images_ae/photo-g/71433-6065305.jpg);
+}
