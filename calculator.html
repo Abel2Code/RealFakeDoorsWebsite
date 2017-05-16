@@ -7,6 +7,7 @@
     var onFirstValue = true;
     var operator;
     var isDecimal = false;
+    var decimalPlace = 10.0;
 
     function update() {
       if (onFirstValue) {
@@ -25,9 +26,11 @@
         }
       } else{
         if (onFirstValue) {
-          firstValue = firstValue * 10 + num;
+          firstValue = firstValue + num / decimalPlace;
+          decimalPlace *= 10;
         } else {
-          secondValue = secondValue * 10 + num;
+          secondValue = secondValue + num / decimalPlace;
+          decimalPlace *= 10;
         }
       }
         update();
@@ -40,52 +43,52 @@
         secondValue = 0;
         onFirstValue = true;
         operator = null;
-        onDecimal = false;
+        isDecimal = false;
         update();
       } else if (sym == '=') {
         if (operator == '+') {
           firstValue = firstValue + secondValue;
           secondValue = 0;
           onFirstValue = true;
-          onDecimal = false;
+          isDecimal = false;
           update();
         } else if (operator == '-') {
           firstValue = firstValue - secondValue;
           secondValue = 0;
           onFirstValue = true;
-          onDecimal = false;
+          isDecimal = false;
           update();
         } else if (operator == 'x') {
           firstValue = firstValue * secondValue;
           secondValue = 0;
           onFirstValue = true;
-          onDecimal = false;
+          isDecimal = false;
           update();
         } else if (operator == '/') {
           firstValue = firstValue / secondValue;
           secondValue = 0;
           onFirstValue = true;
-          onDecimal = false;
+          isDecimal = false;
           update();
         }
       } else if (sym == '+') {
         operator = '+';
         onFirstValue = false;
-        onDecimal = false;
+        isDecimal = false;
       } else if (sym == '-') {
         operator = '-';
         onFirstValue = false;
-        onDecimal = false;
+        isDecimal = false;
       } else if (sym == 'x') {
         operator = 'x';
         onFirstValue = false;
-        onDecimal = false;
+        isDecimal = false;
       } else if (sym == '/') {
         operator = '/';
         onFirstValue = false;
-        onDecimal = false;
+        isDecimal = false;
       } else if(sym='.'){
-        onDecimal = true;
+        isDecimal = true;
       }
     }
   </script>
