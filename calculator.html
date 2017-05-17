@@ -44,52 +44,60 @@
         onFirstValue = true;
         operator = null;
         isDecimal = false;
+        decimalPlace = 10;
         update();
       } else if (sym == '=') {
+        isDecimal = false;
+        decimalPlace = 10;
         if (operator == '+') {
           firstValue = firstValue + secondValue;
           secondValue = 0;
           onFirstValue = true;
-          isDecimal = false;
           update();
         } else if (operator == '-') {
           firstValue = firstValue - secondValue;
           secondValue = 0;
           onFirstValue = true;
-          isDecimal = false;
           update();
         } else if (operator == 'x') {
           firstValue = firstValue * secondValue;
           secondValue = 0;
           onFirstValue = true;
-          isDecimal = false;
           update();
         } else if (operator == '/') {
           firstValue = firstValue / secondValue;
           secondValue = 0;
           onFirstValue = true;
-          isDecimal = false;
           update();
         }
+        checkNewDecimal();
       } else if (sym == '+') {
         operator = '+';
         onFirstValue = false;
         isDecimal = false;
+        decimalPlace = 10;
       } else if (sym == '-') {
         operator = '-';
         onFirstValue = false;
         isDecimal = false;
+        decimalPlace = 10;
       } else if (sym == 'x') {
         operator = 'x';
         onFirstValue = false;
         isDecimal = false;
+        decimalPlace = 10;
       } else if (sym == '/') {
         operator = '/';
         onFirstValue = false;
         isDecimal = false;
+        decimalPlace = 10;
       } else if(sym='.'){
         isDecimal = true;
       }
+    }
+
+    function checkNewDecimal(){
+      
     }
   </script>
 </head>
