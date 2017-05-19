@@ -34,6 +34,10 @@
           secondValue = secondValue + num / decimalPlace;
           decimalPlace *= 10;
         }
+        if(num == 0){
+            document.getElementById('label').innerHTML += "0";
+            return;
+        }
       }
         update();
     }
@@ -95,10 +99,10 @@
         decimalPlace = 10;
       } else if(sym='.'){
         if(!isDecimal){
-          if (onFirstValue) {
-            document.getElementById('label').innerHTML +=".";
-          } else {
-            document.getElementById('label').innerHTML +=".";
+          if(document.getElementById('label').innerHTML == "|"){
+            document.getElementById('label').innerHTML += "0.";
+          } else{
+            document.getElementById('label').innerHTML += ".";
           }
         }
 
@@ -154,4 +158,4 @@
   </div>
 </body>
 
-</html
+</html>
