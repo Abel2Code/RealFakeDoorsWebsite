@@ -8,21 +8,25 @@
     var operator;
     var isDecimal = false;
     var decimalPlace = 10.0;
-    var calculatorOutput = "|"
 
-    function update(x) {
-      calculatorOutput += x;
-      document.getElementById('label').innerHTML = calculatorOutput;
+
+
+    function update() {
+      if (onFirstValue) {
+        document.getElementById('label').innerHTML = "|" + firstValue;
+      } else {
+        document.getElementById('label').innerHTML = "|" + secondValue;
+      }
     }
 
     function pressNumber(num) {
-      if (!isDecimal) {
+      if(!isDecimal){
         if (onFirstValue) {
           firstValue = firstValue * 10 + num;
         } else {
           secondValue = secondValue * 10 + num;
         }
-      } else {
+      } else{
         if (onFirstValue) {
           firstValue = firstValue + num / decimalPlace;
           decimalPlace *= 10;
@@ -31,7 +35,7 @@
           decimalPlace *= 10;
         }
       }
-      update(num);
+        update();
     }
 
     function pressSymbol(sym) {
@@ -43,8 +47,7 @@
         operator = null;
         isDecimal = false;
         decimalPlace = 10;
-        calculatorOutput = "|";
-        update('');
+        update();
       } else if (sym == '=') {
         isDecimal = false;
         decimalPlace = 10;
@@ -52,57 +55,58 @@
           firstValue = firstValue + secondValue;
           secondValue = 0;
           onFirstValue = true;
+          update();
         } else if (operator == '-') {
           firstValue = firstValue - secondValue;
           secondValue = 0;
           onFirstValue = true;
+          update();
         } else if (operator == 'x') {
           firstValue = firstValue * secondValue;
           secondValue = 0;
           onFirstValue = true;
+          update();
         } else if (operator == '/') {
           firstValue = firstValue / secondValue;
           secondValue = 0;
           onFirstValue = true;
+          update();
         }
-        calculatorOutput = "|";
-        update(firstValue);
         checkNewDecimal();
       } else if (sym == '+') {
         operator = '+';
         onFirstValue = false;
         isDecimal = false;
         decimalPlace = 10;
-        calculatorOutput = '|';
-        update('');
       } else if (sym == '-') {
         operator = '-';
         onFirstValue = false;
         isDecimal = false;
         decimalPlace = 10;
-        calculatorOutput = '|';
-        update('');
       } else if (sym == 'x') {
         operator = 'x';
         onFirstValue = false;
         isDecimal = false;
         decimalPlace = 10;
-        calculatorOutput = '|';
-        update('');
       } else if (sym == '/') {
         operator = '/';
         onFirstValue = false;
         isDecimal = false;
         decimalPlace = 10;
-        calculatorOutput = '|';
-        update('');
-      } else if (sym = '.') {
+      } else if(sym='.'){
+        if(!isDecimal){
+          if (onFirstValue) {
+            document.getElementById('label').innerHTML +=".";
+          } else {
+            document.getElementById('label').innerHTML +=".";
+          }
+        }
+
         isDecimal = true;
-        update('.');
       }
     }
 
-    function checkNewDecimal() {
+    function checkNewDecimal(){
 
     }
   </script>
